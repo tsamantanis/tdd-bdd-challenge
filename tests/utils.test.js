@@ -143,6 +143,7 @@ it("Should update the count of items in the cart", function() {
 
 // it("Should validate that an empty cart has 0 items") // pending test
 it("Should validate that an empty cart has 0 items", function() {
+    expect(utils.isEmptyCart()).to.be.a("boolean")
     expect(utils.isEmptyCart()).to.be.true
     const item = utils.createItem("apple", 0.99)
     utils.addItemToCart(item)
@@ -151,4 +152,14 @@ it("Should validate that an empty cart has 0 items", function() {
     expect(utils.isEmptyCart()).to.be.true
 })
 
-it("Should return the total cost of all items in the cart")
+it("Should return the total cost of all items in the cart", function() {
+    const apple = utils.createItem("apple", 0.99)
+    const banana = utils.createItem("banana", 1.29)
+    utils.addItemToCart(apple)
+    utils.addItemToCart(banana)
+    expect(utils.totalCostOfItems()).to.be.a("number")
+    expect(utils.totalCostOfItems()).to.be.at.least(0)
+    expect(utils.totalCostOfItems()).to.be.equal(2.28)
+    utils.addItemToCart(apple)
+    expect(utils.totalCostOfItems()).to.be.equal(3.27)
+})
