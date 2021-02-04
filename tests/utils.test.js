@@ -141,6 +141,14 @@ it("Should update the count of items in the cart", function() {
     expect(utils.getNumItemsInCart()).to.be.equal(0)
 })
 
-it("Should validate that an empty cart has 0 items")
+// it("Should validate that an empty cart has 0 items") // pending test
+it("Should validate that an empty cart has 0 items", function() {
+    expect(utils.isEmptyCart()).to.be.true
+    const item = utils.createItem("apple", 0.99)
+    utils.addItemToCart(item)
+    expect(utils.isEmptyCart()).to.be.false
+    utils.removeItemFromCart(item)
+    expect(utils.isEmptyCart()).to.be.true
+})
 
 it("Should return the total cost of all items in the cart")

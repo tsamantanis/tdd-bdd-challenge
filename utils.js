@@ -60,10 +60,12 @@ const removeItemFromCart = (item) => {
 // Stretch Challenges
 // ========================================================
 
-
+const isEmptyCart = () => {
+    return getNumItemsInCart() === 0 && shoppingCart.length === 0
+}
 
 module.exports = {
     sayHello, area, perimeter, circleArea,
     clearCart, createItem, getShoppingCart, addItemToCart,
-    getNumItemsInCart, removeItemFromCart
+    getNumItemsInCart, removeItemFromCart, isEmptyCart
 }
