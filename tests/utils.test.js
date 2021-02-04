@@ -81,13 +81,46 @@ it("Should create a new (object) Item with name and price", function() {
     expect(item).to.have.property("quantity", 1)
 })
 
-it("Should return an array containing all items in cart")
+// it("Should return an array containing all items in cart") // pending test
+it("Should return an array containing all items in cart", function() {
+    const apple = utils.createItem("apple", 0.99)
+    const banana = utils.createItem("banana", 1.29)
+    utils.addItemToCart(apple)
+    utils.addItemToCart(banana)
+    expect(utils.getShoppingCart()).to.be.a("array")
+    expect(utils.getShoppingCart().length).to.be.equal(2)
+})
 
-it("Should add a new item to the shopping cart")
+// it("Should add a new item to the shopping cart") // pending test
+it("Should add a new item to the shopping cart", function() {
+    const length = utils.getShoppingCart().length
+    const item = utils.createItem("apple", 0.99)
+    utils.addItemToCart(item)
+    expect(utils.getShoppingCart()[length]).to.be.a("object")
+    expect(utils.getShoppingCart()).to.have.length.equal(length + 1)
+    expect(utils.getShoppingCart()).to.include(item)
+})
 
-it("Should return the number of items in the cart")
+// it("Should return the number of items in the cart") // pending test
+it("Should return the number of items in the cart", function() {
+    expect(utils.getNumItemsInCart()).to.be.equal(0)
+    const item = utils.createItem("apple", 0.99)
+    utils.addItemToCart(item)
+    expect(utils.getNumItemsInCart()).to.be.a("number")
+    expect(utils.getNumItemsInCart()).to.be.at.least(0)
+    expect(utils.getNumItemsInCart()).to.be.equal(1)
+})
 
-it("Should remove items from cart")
+// it("Should remove items from cart") // pending test
+it("Should remove items from cart", function() {
+    const item = utils.createItem("apple", 0.99)
+    utils.addItemToCart(item)
+    expect(utils.getNumItemsInCart()).to.be.equal(1)
+    utils.removeItemFromCart(item)
+    expect(utils.getNumItemsInCart()).to.be.equal(0)
+    expect(utils.removeItemFromCart(item)).to.be.equal("Item not found")
+
+})
 
 // ========================================================
 // Stretch Challenges
