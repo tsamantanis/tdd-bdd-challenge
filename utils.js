@@ -50,7 +50,7 @@ const getNumItemsInCart = () => {
 }
 
 const removeItemFromCart = (item) => {
-    if (!shoppingCart.includes(item)) {
+    if (shoppingCart.length === 0 || !shoppingCart.includes(item)) {
         return "Item not found"
     }
     shoppingCart.splice(item, 1)
