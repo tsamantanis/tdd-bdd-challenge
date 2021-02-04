@@ -97,7 +97,7 @@ it("Should add a new item to the shopping cart", function() {
     const item = utils.createItem("apple", 0.99)
     utils.addItemToCart(item)
     expect(utils.getShoppingCart()[length]).to.be.a("object")
-    expect(utils.getShoppingCart()).to.have.length.equal(length + 1)
+    expect(utils.getShoppingCart().length).to.be.equal(length + 1)
     expect(utils.getShoppingCart()).to.include(item)
 })
 
