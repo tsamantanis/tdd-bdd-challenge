@@ -44,7 +44,9 @@ const addItemToCart = (item) => {
 }
 
 const getNumItemsInCart = () => {
-    return shoppingCart.length
+    return shoppingCart.length > 0 ?
+        shoppingCart.reduce((accum, item) => accum + item.quantity, 0)
+        : 0
 }
 
 const removeItemFromCart = (item) => {
@@ -53,6 +55,12 @@ const removeItemFromCart = (item) => {
     }
     shoppingCart.splice(item, 1)
 }
+
+// ========================================================
+// Stretch Challenges
+// ========================================================
+
+
 
 module.exports = {
     sayHello, area, perimeter, circleArea,
