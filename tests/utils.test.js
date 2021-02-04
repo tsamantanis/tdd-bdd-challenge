@@ -10,10 +10,10 @@ const expect = chai.expect
 // ========================================================
 
 it("should say hello", function() {
-  const hello = utils.sayHello()
-  expect(hello).to.be.a("string")
-  expect(hello).to.equal("Hello")
-  expect(hello).with.lengthOf(5)
+    const hello = utils.sayHello()
+    expect(hello).to.be.a("string")
+    expect(hello).to.equal("Hello")
+    expect(hello).with.lengthOf(5)
 })
 
 // ========================================================
@@ -26,7 +26,38 @@ it("should say hello", function() {
 // This is called "Red-Green-Refactor"
 // ========================================================
 
+// it("should return the area of a rectangle given width and height") // pending test
+let rectWidth = 2
+let rectHeight = 4
+it("should return the area of a rectangle given width and height", function() {
+    expect(utils.area(rectWidth, rectHeight)).to.be.a("number")
+    expect(utils.area(rectWidth, rectHeight)).to.be.at.least(0)
+    expect(utils.area(rectWidth, rectHeight)).to.be.equal(Math.abs(rectWidth * rectHeight))
+    rectWidth = 10
+    rectHeight = 0
+    expect(utils.area(rectWidth, rectHeight)).to.be.equal(Math.abs(rectWidth * rectHeight))
+})
 
+// it("should return the perimeter of a rectangle given width and height") // pending test
+
+it("should return the perimeter of a rectangle given width and height", function() {
+    expect(utils.perimeter(rectWidth, rectHeight)).to.be.a("number")
+    expect(utils.perimeter(rectWidth, rectHeight)).to.be.at.least(0)
+    expect(utils.perimeter(rectWidth, rectHeight)).to.be.equal(Math.abs(2 * rectWidth + 2 * rectHeight))
+    rectWidth = 10
+    rectHeight = 0
+    expect(utils.perimeter(rectWidth, rectHeight)).to.be.equal(Math.abs(2 * rectWidth + 2 * rectHeight))
+})
+
+// it("should return the area of a circle given its radius") // pending test
+let radius = 10
+it("should return the area of a circle given its radius", function() {
+    expect(utils.circleArea(radius)).to.be.a("number")
+    expect(utils.circleArea(radius)).to.be.at.least(0)
+    expect(utils.circleArea(radius)).to.be.equal(Math.abs(2 * Math.PI * radius))
+    radius = 0
+    expect(utils.circleArea(radius)).to.be.equal(Math.abs(2 * Math.PI * radius))
+})
 
 
 // ========================================================
@@ -38,16 +69,16 @@ it("should say hello", function() {
 // ========================================================
 
 beforeEach((done) => {
-  utils.clearCart()
-  done()
+    utils.clearCart()
+    done()
 })
 
 it("Should create a new (object) Item with name and price", function() {
-  const item = utils.createItem("apple", 0.99)
-  expect(item).to.be.a("object")
-  expect(item).to.have.property("name", "apple")
-  expect(item).to.have.property("price", 0.99)
-  expect(item).to.have.property("quantity", 1)
+    const item = utils.createItem("apple", 0.99)
+    expect(item).to.be.a("object")
+    expect(item).to.have.property("name", "apple")
+    expect(item).to.have.property("price", 0.99)
+    expect(item).to.have.property("quantity", 1)
 })
 
 it("Should return an array containing all items in cart")

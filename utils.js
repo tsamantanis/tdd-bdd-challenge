@@ -3,19 +3,19 @@
 // ========================================================
 
 const sayHello = () => {
-  return "Hello"
+    return "Hello"
 }
 
 const area = (w, h) => {
-  // should return the area
+    // should return the area
 }
 
 const perimeter = (w, h) => {
-  // should return the perimeter
+    // should return the perimeter
 }
 
 const circleArea = r => {
-  // should return the area of the circle
+    // should return the area of the circle
 }
 
 // ========================================================
@@ -28,31 +28,31 @@ const circleArea = r => {
 const shoppingCart = []
 
 const clearCart = () => {
-  shoppingCart.length = 0
+    shoppingCart.length = 0
 }
 
 const createItem = (name, price) => {
-  return { name, price, quantity: 1 }
+    return { name, price, quantity: 1 }
 }
 
 const getShoppingCart = () => {
-  // should return the current state of shopping cart
+    // should return the current state of shopping cart
 }
 
 const addItemToCart = (item) => {
-  // should add item to shopping cart
+    // should add item to shopping cart
 }
 
 const getNumItemsInCart = () => {
-  // should return the total quantity of items in cart
+    // should return the total quantity of items in cart
 }
 
 const removeItemFromCart = (item) => {
-  // should remove item from shopping cart
+    // should remove item from shopping cart
 }
 
 module.exports = {
-  sayHello, area, perimeter, circleArea,
-  clearCart, createItem, getShoppingCart, addItemToCart,
-  getNumItemsInCart, removeItemFromCart
+    sayHello, area, perimeter, circleArea,
+    clearCart, createItem, getShoppingCart, addItemToCart,
+    getNumItemsInCart, removeItemFromCart
 }
